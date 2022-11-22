@@ -1,0 +1,67 @@
+<div>
+  <h2>Rate my cakes</h2>
+</div>
+<div class="ingresoMasListado">
+  <div class="ingresaPastel">
+    <form class="form" [formGroup]="formPastel" (ngSubmit)="ingresarNuevoPastel()">
+      <p>Submit a cake to be rated</p>
+      <label for="nombrePastelero">baker name</label><br>
+      <input type="text" name="nombrePastelero" id="nombrePastelero" formControlName="nombre"><br><br>
+      <label for="UrlFotoPastel">Image url</label><br><br>
+      <input type="text" name="UrlFotoPastel" id="UrlFotoPastel" formControlName="imagen"><br><br><br>
+      <input class="btnSubmitIngresaPastel" type="submit" value= "submit"/>
+    </form>
+  </div>
+  <div class="muestraTodos">
+    <table *ngIf="muestraTodos">
+      <tr *ngFor="let info of datosBuscaTodo" >
+        <button (click)="buscarUno(info._id)"> <img class="imagenPastel" src="{{info.fotoPastelUrl}}" alt="Imagen Pastel"> </button>
+        <td>
+          <form class="form2" [formGroup]="formComentario" (ngSubmit)="ingresarComentario(info._id)">
+            <select name="puntuacion" id="puntuacion" formControlName="puntuacion" class="select-form2">
+              <option value=1 [defaultSelected]=1>1 stars</option>
+              <option value=2>2 stars</option>
+              <option value=3>3 stars</option>
+              <option value=4>4 stars</option>
+              <option value=5>5 stars</option>
+              <option value=6>6 stars</option>
+              <option value=7>7 stars</option>
+            </select>
+            <!-- <input class="" type="text" name="comentario" formControlName="comentario" placeholder="Type your comments here"><br> -->
+            <textarea rows="5" cols="22" name="comentario" placeholder="Type your comments here" formControlName="comentario"></textarea>
+            <input type="submit" value= "Rate"/>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div>
+  <table class="comentario" *ngIf="muestraDetalle">
+    <h3>Backed</h3>
+    <tr *ngFor="let info2 of datosBuscaUno.comentarioPastel">
+      <div class="formFinal">
+        <section>
+          <p> {{info2.nombrePastelero}} </p>
+          <td>Average rating : {{promedio}} stars</td><br>
+          <td>{{info2.comentario}}</td><br>
+          <td>{{info2.puntuacion}} stars</td><br><br>
+        </section>
+      </div>
+    </tr>
+  </table>
+
+  <!-- <table class="comentario" *ngIf="muestraDetalle">
+    <tr *ngFor="let info of datosBuscaUno.comentarioPastel">
+      <div class="formFinal">
+        {{info.nombrePastelero}}
+        <section>
+          <td><h4>promedio: {{promedio}}</h4></td><br>
+          <td><h4>opinion: {{info.comentario}} </h4></td><br>
+          <td><h4>puntuacion: {{info.puntuacion}} </h4></td>
+        </section>
+      </div>
+    </tr>
+  </table> -->
+
+</div>

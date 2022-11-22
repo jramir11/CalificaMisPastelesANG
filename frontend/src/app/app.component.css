@@ -1,0 +1,52 @@
+* {
+  /* border: 1px solid firebrick; */
+  font-family: sans-serif;
+}
+
+.btnSubmitIngresaPastel
+ {
+    background-color:dodgerblue;
+    color: white;
+    height: 30px;
+    width: 80px;
+ }
+
+ .form2 {
+  width: 200px;
+  padding-left: 10px;
+}
+
+.formFinal {
+  display: flex;
+}
+
+.muestraTodos {
+  height: 300px;
+  overflow: scroll;
+  /* border: 1px solid red; */
+}
+
+.select-form2 {
+  width: 170px;
+}
+.comm-form2 {
+  width: 170px;
+}
+
+.imagenPastel {
+  width: 200px;
+  height: 120px;
+}
+
+.form {
+  border: 1px solid black;
+  width: 200px;
+  height: 300px;
+  padding-left: 10px;
+}
+
+.ingresoMasListado {
+  display: flex;
+  flex-direction: row;
+}
+
